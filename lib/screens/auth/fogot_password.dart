@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:minibit/components/custombutton/custombutton.dart';
 import 'package:minibit/components/customtextfiled/customtextfiled.dart';
-import 'package:minibit/screens/auth/fogot_password.dart';
-import 'package:minibit/screens/auth/sign_uppage.dart';
 
-class sign_inpage extends StatefulWidget {
-  const sign_inpage({super.key});
+class fogot_password extends StatefulWidget {
+  const fogot_password({super.key});
 
   @override
-  State<sign_inpage> createState() => _sign_inpageState();
+  State<fogot_password> createState() => _fogot_passwordState();
 }
 
-class _sign_inpageState extends State<sign_inpage> {
+class _fogot_passwordState extends State<fogot_password> {
   TextEditingController emailcontroller = TextEditingController();
-  TextEditingController passwordcontroller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -41,14 +39,25 @@ class _sign_inpageState extends State<sign_inpage> {
                 // )),
                 child: const Center(
                     child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Align(
+                      alignment: Alignment.topLeft,
+                      child: BackButton(
+                        color: Colors.white,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 50,
+                    ),
                     Text("BMW Store",
                         style: TextStyle(
                             color: Color.fromARGB(255, 255, 255, 255),
                             fontWeight: FontWeight.w500,
                             fontSize: 30)),
-                    Text("Sign in to your account",
+                    Text("Reset your Password",
                         style: TextStyle(
                             color: Color.fromARGB(255, 255, 255, 255),
                             fontWeight: FontWeight.w500,
@@ -75,32 +84,6 @@ class _sign_inpageState extends State<sign_inpage> {
                           label: "Email",
                           controller: emailcontroller,
                         ),
-                        customtextfiled(
-                          icon: Icons.password_outlined,
-                          label: "Password",
-                          isPassword: true,
-                          controller: passwordcontroller,
-                        ),
-                        Align(
-                          alignment: Alignment.bottomRight,
-                          child: Padding(
-                            padding: EdgeInsets.only(right: 8.0),
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            const fogot_password()));
-                              },
-                              child: const Text("Fogot password",
-                                  style: TextStyle(
-                                      color: Color.fromARGB(255, 114, 123, 249),
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 16)),
-                            ),
-                          ),
-                        ),
                         const SizedBox(
                           height: 10,
                         ),
@@ -114,26 +97,7 @@ class _sign_inpageState extends State<sign_inpage> {
                               Color.fromARGB(255, 0, 69, 126)
                             ],
                             size: size,
-                            text: "Sign in",
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 9.0, left: 9.0),
-                          child: custombutton(
-                            ontap: () => Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const sign_uppage())),
-                            textcolor: Colors.blue,
-                            colors: const [
-                              Color.fromARGB(255, 218, 203, 252),
-                              Color.fromARGB(255, 202, 202, 202)
-                            ],
-                            size: size,
-                            text: "Create New Account",
+                            text: "Reset Password",
                           ),
                         ),
                       ],
